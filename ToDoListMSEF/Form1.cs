@@ -50,6 +50,11 @@ namespace ToDoListMSEF
             ToDoNameTextBox.Text = "";
             //wyœwietlamy komunikat
             MessageBox.Show("Zadanie dodane pomyœlnie!");
+            //przeladowanie dane w DataGridView
+            items = db.ToDoItems.ToList();
+            BindingSource bindingSource = new BindingSource();
+            bindingSource.DataSource = items;
+            ToDoDataGridView.DataSource = bindingSource;
         }
         private void ToDoDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
